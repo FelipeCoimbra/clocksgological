@@ -112,8 +112,8 @@ func NewVectorClock(tickLoopSleepMSec int, tickChannelSize int, id int, processC
 		clockController: clockController{
 			controlChannel: make(chan bool),
 			controlMutex:   sync.Mutex{},
-			loopSleep:      tickLoopSleepMSec * time.Millisecond,
-			state:          standby,
+			loopSleep:      time.Duration(tickLoopSleepMSec) * time.Millisecond,
+			state:          Standby,
 		},
 		eventMutex: sync.RWMutex{},
 		timestamp:  make(VectorTimestamp, processCount),

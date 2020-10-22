@@ -85,7 +85,7 @@ func NewScalarClock(tickChannelSize int) *ScalarClock {
 			controlChannel: make(chan bool),
 			controlMutex:   sync.Mutex{},
 			loopSleep:      100 * time.Millisecond,
-			state:          standby,
+			state:          Standby,
 		},
 		timestamp: 0,
 	}
